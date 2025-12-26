@@ -9,12 +9,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 app.post("/api/ask", async(req, res)=>{
     const {question} = req.body;
     try{
 
         const response = await axios.post(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key="+process.env.GEMINI_API_KEY,
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
             {
                 contents:[{ parts:[{text:question}] }]
             }
@@ -26,8 +27,8 @@ app.post("/api/ask", async(req, res)=>{
 
         res.json({ reply:aiText });
     }catch(error){
-        console.error("error:", error.message);
-        res.status(500).json({reply: "Sorry i couldn't process that"});
+            console.error(error.response?.data || error);
+    res.status(500).json({ reply: "AI request failed" })
     }
 });
 
