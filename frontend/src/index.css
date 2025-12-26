@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: Gilroy-regular;
+  src: url(./assets/Gilroy-Regular.ttf);
+}
+@font-face {
+  font-family: Gilroy-bold;
+  src: url(./assets/Gilroy-Heavy.ttf);
+}
+::selection{
+  color: peru;
+  background-color:  rgb(255, 242, 219);
+}
+
+body{
+  background: url(../public/Images/artistic-blurry-colorful-wallpaper-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Gilroy-regular;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
